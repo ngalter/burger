@@ -1,0 +1,35 @@
+<h1>Eat-Da-Burger!</h1>
+
+<h2>Burgers that are ordered but not eaten.</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{!-- {{> burgers/burger-block devoured=true}} --}}
+        {{burgers}}
+          <li>{{id}} {{burger_name}}</li>
+
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burgers that are ordered and Devoured!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+          <li>{{id}} {{burger_name}}</li>         
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label form="bn">Burger Name:</label>
+    <input type="text" id="burg" name="burger_name">
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
