@@ -1,3 +1,4 @@
+<div class="content">
 <div class="container">
 <div class="row d-flex burger-head justify-content-center">
       <img src="../assets/img/burger.png" class="burger-img">
@@ -6,35 +7,34 @@
 </div>
 <div class="container">
   <div class="row d-flex burger-uneaten justify-content-center">
-    <div class="col-md-6 ordered">
+    <div class="col-md-6">
       {{!-- ordered but not eaten --}}
         <ul>
           {{#each burgers}}
             {{#unless devoured}}
-                  <li>{{id}} {{burger_name}}  <button type="button" class="eat btn btn-warning" id ="eatbtn" data-id="{{this.id}}" data-newDevoured="{{devour}}">Devour It!</button></li>         
+                  <li class="uneaten">{{id}} - {{burger_name}}  <button type="btn" class="eat burger-btn" id="eatbtn" data-id="{{this.id}}" data-newDevoured="{{devour}}">Devour It!</button> </li>      
             {{/unless}}
           {{/each}}
         </ul>
     </div>
-    <div class="col-md-6 unordered">
+    <div class="col-md-6">
       {{!-- ordered and eaten --}}
-      <ul>
-  {{#each burgers}}
-    {{#if devoured}}
-        {{burgers}}
-                    <ul>
-                       <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
-                    </ul>
-        {{/if}}
-        {{/each}}
-    </ul>
+          <ul>
+            {{#each burgers}}
+              {{#if devoured}}
+               {{burgers}}
+                    <li class="eaten">
+                       <span><strong>{{this.id}} - {{this.burger_name}} </strong></span>
+                    </li>
+               {{/if}}
+              {{/each}}
+          </ul>
     </div>
   </div>
-
 </div>
 </div>
 {{!-- center bottom section --}}
-<div class="row burger-foot">
+<div class="container burger-foot">
 <h2>Add a Burger</h2>
 <form class="create-form">
   <div class="form-group">
@@ -43,4 +43,5 @@
     <button type="submit" id="newBurger">Add Burger</button>
   </div>
 </form>
+</div>
 </div>
