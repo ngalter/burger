@@ -1,13 +1,13 @@
 <div class="container">
 <div class="row d-flex burger-head justify-content-center">
       <img src="../assets/img/burger.png" class="burger-img">
-      <h1>Eat-Da-Burger!</h1>
+      <h1 class="burger-head-title">Eat-Da-Burger!</h1>
 </div>
 </div>
 <div class="container">
   <div class="row d-flex burger-uneaten justify-content-center">
-    <div class="col-lg-6 ordered">
-      {{!-- Burgers that are ordered but not eaten --}}
+    <div class="col-md-6 ordered">
+      {{!-- ordered but not eaten --}}
         <ul>
           {{#each burgers}}
             {{#unless devoured}}
@@ -16,12 +16,11 @@
           {{/each}}
         </ul>
     </div>
-    <div class="col-lg-6 unordered">
-      {{!-- Burgers that are ordered and eaten --}}
+    <div class="col-md-6 unordered">
+      {{!-- ordered and eaten --}}
       <ul>
   {{#each burgers}}
     {{#if devoured}}
-      {{!-- {{> burgers/burger-block devoured=true}} --}}
         {{burgers}}
                     <ul>
                        <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
@@ -38,12 +37,10 @@
 <div class="row burger-foot">
 <h2>Add a Burger</h2>
 <form class="create-form">
-
   <div class="form-group">
-    <label form="bn">Burger Name:</label>
-    <input type="text" id="burg" name="burger_name">
+    <label for="newBurger">Burger Name:</label>
+    <input type="text" id="name" name="burger_name">
+    <button type="submit" id="newBurger">Add Burger</button>
   </div>
-
-  <button type="submit">Add Burger</button>
 </form>
 </div>

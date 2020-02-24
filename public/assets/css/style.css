@@ -9,6 +9,14 @@ li {
   width: 200px;
   height: 100%;
   margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.burger-head-title {
+  color: red;
+  flex: content;
+  text-align: center;
+  margin-top: -.25em;
 }
 
 .burger-head {
