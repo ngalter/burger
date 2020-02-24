@@ -3,6 +3,18 @@ li {
   margin: 5px;
   background: #faebd7;
 }
+.burger-img {
+  margin-top: 2em;
+  width: 200px;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.burger-head {
+  color: red;
+  display: flex;
+  justify-content: center;
+}
 
 .label {
   font-weight: bold;
@@ -16,4 +28,7 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+body {
+  background-color:#ffcc66;
 }
