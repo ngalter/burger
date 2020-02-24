@@ -41,7 +41,7 @@ function objToSql(ob) {
 
 // Object for all our SQL statement functions.
 var orm = {
-  select: function(tableInput, cb) {
+  selectAll: function(tableInput, cb) {
     var queryString = "SELECT * FROM ??;";
     connection.query(queryString, [tableInput], function(err, result) {
       if (err) {
@@ -50,7 +50,7 @@ var orm = {
       cb(result);
     });
   },
-  insert: function(table, cols, vals, cb) {
+  insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO ?? (??) VALUES (?);"; 
     connection.query(queryString, [table, cols, vals,], function(err, result) {
       if (err) {
@@ -60,7 +60,7 @@ var orm = {
     });
   },
 
-//   update: function(table, objColVals, condition, cb) {
+//   updateOne: function(table, objColVals, condition, cb) {
 //     var queryString = "UPDATE ?? SET ? WHERE ?;";
 //     connection.query(queryString,[table, objColVals, condition], function(err, result) {
 //       if (err) {
@@ -70,7 +70,7 @@ var orm = {
 //     });
 //   }
 // };
-update: function(table,objColVals,condition,cb){
+updateOne: function(table,objColVals,condition,cb){
   var queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`;
   connection.query(queryString,function(err,result){
       if(err){
@@ -82,7 +82,7 @@ update: function(table,objColVals,condition,cb){
 };
 
   //   // Set burger devoured status to true.
-  // update: function (table, objColVals, condition, cb) {
+  // updateOne: function (table, objColVals, condition, cb) {
   //   var queryString = "UPDATE " + table;
   //   queryString += " SET ";
   //   queryString += objToSql(objColVals);
