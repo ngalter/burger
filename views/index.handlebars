@@ -20,14 +20,23 @@
     <div class="col-md-6">
       {{!-- ordered and eaten --}}
           <ul>
+            <div class="hide"><button type="btn" class="clean-up-btn" id="cleanup" data-id="clean"><i class="fas fa-trash-alt"></i> Clean Up!</button></div>
             {{#each burgers}}
               {{#if devoured}}
                {{burgers}}
                     <li class="eaten">
                        <span><strong>{{this.id}} - {{this.burger_name}} </strong></span>
+                        <button type="btn" class="clean-up-btn" id="cleanup" data-id="{{this.id}}"><i class="fas fa-trash-alt"></i></button>
                     </li>
                {{/if}}
-              {{/each}}
+               {{/each}}
+              {{#each burgers}}
+              {{#if devoured}}
+
+              {{else}}
+                  <div class="hide"><button type="btn" class="clean-up-btn" id="cleanup" data-id="clean"><i class="fas fa-trash-alt"></i> Clean Up!</button></div>
+              {{/if}}
+              {{/each}}          
           </ul>
     </div>
   </div>

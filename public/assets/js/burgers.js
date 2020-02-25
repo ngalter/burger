@@ -1,5 +1,5 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(function() {
+$(function () {
   $(".eat").on("click", function (event) {
     event.preventDefault();
     var id = $(this).data("id");
@@ -12,7 +12,7 @@ $(function() {
       type: "PUT",
       data: devouredState
     }).then(
-      function() {
+      function () {
         console.log("Burger Devoured, Yum!");
         // Reload the page to get the updated list
         location.reload();
@@ -59,16 +59,16 @@ $(function() {
       });
     });
 
-    $(".trashburger").on("click", function (event) {
+    $(".clean-up-btn").on("click", function (event) {
       event.preventDefault();
-
       var id = $(this).data("id");
+    
 
       // Send the DELETE request.
-      $.ajax({
+      $.ajax("/api/burgers/" + id, {
         type: "DELETE",
-        url: "/api/burgers/" + id
       }).then(location.reload());
     });
   });
-  });
+});
+

@@ -40,6 +40,18 @@ router.put("/api/burgers/:id", function(req, res) {
   });
 });
 
+// Create all our routes and set up logic within those routes where required.
+router.delete("/api/burgers/:id", function (req, res) {
+  var condition = "id = " + req.params.id;
+  burger.deleteOne(condition, function (data) {
+    var hbsObject = {
+      burgers: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
+  });
+});
+
 
 // Export routes for server.js to use.
 module.exports = router;

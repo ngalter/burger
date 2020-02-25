@@ -45,7 +45,7 @@ var orm = {
     });
   },
 
-updateOne: function(table,objColVals,condition,cb){
+updateOne: function(table,objColVals,condition,cb) {
   var queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`;
   connection.query(queryString,function(err,result){
       if(err){
@@ -53,7 +53,17 @@ updateOne: function(table,objColVals,condition,cb){
       };
       cb(result);
   });
-}
+  },
+
+  deleteOne: function (table, condition, cb) {
+    var queryString = `DELETE FROM ${table} WHERE ${condition};`;
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
 };
 
 // Export the orm object for the model (cat.js).
